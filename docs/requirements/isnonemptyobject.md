@@ -17,7 +17,7 @@ work_items:
     effort: 2
     depends_on: []
     status: done
-    self_check: node test.js 全部通过（含原有 isObject 用例与新增 isNonEmptyObject 用例：空对象 false、含键对象/含自身键构造实例 true、数组/null/undefined/字符串/数字/函数 false、仅可枚举 Symbol 键 false、仅不可枚举自身属性 false）。ESM 命名导入 { isNonEmptyObject } 与默认导入均验证通过；npm run build 生成 index.cjs.js，require('./') 默认导出仍为 isObject 函数（原测试通过），命名导出经 module.exports.isNonEmptyObject 暴露。index.d.ts 增加 isNonEmptyObject 类型谓词；README 增补说明与示例。构建脚本仅追加 footer 以在新增命名导出时保持默认导出 CJS 互操作，未改 prepublish/main 等无关发布配置。
+    self_check: 仅改 README.md 一处示例：isNonEmptyObject(new Date()) 注释由 true 改为 false，并补充括号说明（无自身可枚举字符串键）；调整示例顺序使空对象与 Date 均为 false 连贯展示。实测 Object.keys(new Date()).length === 0，isNonEmptyObject(new Date()) 返回 false，与实现一致。实现、index.d.ts、index.cjs.js、test.js 均未改动；node test.js 全部通过。
 ---
 # 新增 isNonEmptyObject 命名导出
 

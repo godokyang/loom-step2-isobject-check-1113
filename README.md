@@ -36,8 +36,8 @@ isObject('foo');                   // false
 const { isNonEmptyObject } = require('isobject');
 
 isNonEmptyObject({ foo: 'bar' });  // true
-isNonEmptyObject(new Date());      // true
 isNonEmptyObject({});              // false
+isNonEmptyObject(new Date());      // false (no own enumerable keys)
 
 isNonEmptyObject(null);            // false
 isNonEmptyObject([]);              // false
