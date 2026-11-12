@@ -29,7 +29,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "build": "rollup -i index.js -o index.cjs.js -f cjs",
+    "build": "rollup -i index.js -o index.cjs.js -f cjs --footer \"module.exports = exports.default; module.exports.isNonEmptyObject = exports.isNonEmptyObject;\"",
     "test": "node test.js",
     "prepublish": "npm run build"
   },

@@ -9,8 +9,16 @@ acceptance:
   - 默认导出 isObject 行为不变，现有测试全部继续通过
   - index.d.ts 含 isNonEmptyObject 的类型谓词声明；CJS 构建（index.cjs.js）包含新导出
   - test.js 覆盖新函数的典型与边界用例并通过；README 增补 isNonEmptyObject 说明
+work_items:
+  - id: isnonempty-object-impl
+    title: 实现 isNonEmptyObject 命名导出并同步类型声明、CJS 构建、测试与 README
+    deliverable: index.js/index.d.ts/index.cjs.js/test.js/README.md 更新
+    completion: node test.js 全部通过；ESM 命名导入与构建后 CJS require 均可用新函数
+    effort: 2
+    depends_on: []
+    status: done
+    self_check: node test.js 全部通过（含原有 isObject 用例与新增 isNonEmptyObject 用例：空对象 false、含键对象/含自身键构造实例 true、数组/null/undefined/字符串/数字/函数 false、仅可枚举 Symbol 键 false、仅不可枚举自身属性 false）。ESM 命名导入 { isNonEmptyObject } 与默认导入均验证通过；npm run build 生成 index.cjs.js，require('./') 默认导出仍为 isObject 函数（原测试通过），命名导出经 module.exports.isNonEmptyObject 暴露。index.d.ts 增加 isNonEmptyObject 类型谓词；README 增补说明与示例。构建脚本仅追加 footer 以在新增命名导出时保持默认导出 CJS 互操作，未改 prepublish/main 等无关发布配置。
 ---
-
 # 新增 isNonEmptyObject 命名导出
 
 ## 目标

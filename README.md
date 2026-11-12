@@ -33,11 +33,26 @@ isObject(() => {});                // false
 isObject('foo');                   // false
 ```
 
+const { isNonEmptyObject } = require('isobject');
+
+isNonEmptyObject({ foo: 'bar' });  // true
+isNonEmptyObject(new Date());      // true
+isNonEmptyObject({});              // false
+
+isNonEmptyObject(null);            // false
+isNonEmptyObject([]);              // false
+isNonEmptyObject(() => {});        // false
+```
+
 ## API
 
 ### `isObject(value)`
 
 Returns `true` when `value` is a non-null object and is not an array. Functions return `false`.
+
+### `isNonEmptyObject(value)`
+
+Returns `true` when `value` passes the `isObject` check **and** has at least one own, enumerable string key (`Object.keys(value).length > 0`). Enumerable Symbol keys and non-enumerable properties are not counted, so an object with only such keys returns `false`.
 
 ## Development
 

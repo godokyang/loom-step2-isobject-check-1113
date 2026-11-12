@@ -8,3 +8,7 @@
 export default function isObject(val) {
   return val != null && typeof val === 'object' && Array.isArray(val) === false;
 };
+
+export function isNonEmptyObject(val) {
+  return isObject(val) && Object.keys(val).length > 0;
+};
