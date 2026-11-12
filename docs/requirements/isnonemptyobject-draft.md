@@ -2,7 +2,7 @@
 loom_kind: requirement
 id: 7d3b1a5c-4e2f-4b68-9a17-c58f02d3e904
 title: 新增 isNonEmptyObject 命名导出
-status: draft
+status: confirmed
 acceptance:
   - 命名导出 isNonEmptyObject 存在，语义为 isObject(val) 为 true 且 Object.keys(val).length > 0 时返回 true，其余返回 false
   - 只有可枚举 Symbol 键的对象返回 false；只有不可枚举自身属性的对象返回 false

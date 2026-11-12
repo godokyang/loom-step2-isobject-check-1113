@@ -8,7 +8,7 @@ shared_work:
     kind: planning
     depends_on: []
     status: done
-    self_check: '需求文档 docs/requirements/isnonemptyobject-draft.md 头部含 loom_kind: requirement、固定 id 7d3b1a5c-4e2f-4b68-9a17-c58f02d3e904、title、acceptance；语义、边界（Symbol 键不算、不可枚举不算）、交付形态（d.ts+CJS）、不做项（prepublish 不修）均已由用户确认；.loom/version-plan.md 已生成并通过校验，含 1 项需求预算与 2 项公共工作。'
+    self_check: '需求文档头部完整（loom_kind: requirement、固定 id、title、status: confirmed、acceptance），总结已被用户确认，规划工作项 co-create-planning 已完成并结算。'
   - id: version-validation
     title: 版本独立验收
     deliverable: 全量自检记录：ESM/CJS 双格式导入验证与类型声明检查
